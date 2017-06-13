@@ -1,4 +1,4 @@
-from note import Note
+from .note import Note
 
 class NoteTake:
     def __init__(self):
@@ -12,6 +12,7 @@ class NoteTake:
         self.notes.append(note)
         for i in range(len(self.notes)):
             self.notes[i].note_id = i
+        print("Note created successfully.")
             
     def view_note(self, note_id):
         """
@@ -51,5 +52,5 @@ class NoteTake:
             if found is not None:
                 found_notes.append(found)
         for note in found_notes:
-            print(note.id, note.content)
+            print(note.note_id, note.content)
         
