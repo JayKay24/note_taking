@@ -35,5 +35,8 @@ class NoteTake:
                 self.notes.pop(note_id)
                 print("Note was successfully deleted.")
                 break
-        
+    
+    def list_notes(self):
+        for note in self.notes:
+            print(note.note_id, note.content)
         
