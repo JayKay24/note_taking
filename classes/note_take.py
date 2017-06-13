@@ -39,4 +39,17 @@ class NoteTake:
     def list_notes(self):
         for note in self.notes:
             print(note.note_id, note.content)
+            
+    def search_notes(self, query_string):
+        """
+        Search all notes for the query_string.
+        """
+        found_notes = []
+        for note in self.notes:
+            found = note.search(query_string)
+            # The note was found.
+            if found is not None:
+                found_notes.append(found)
+        for note in found_notes:
+            print(note.id, note.content)
         
