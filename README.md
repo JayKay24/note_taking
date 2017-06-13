@@ -1,5 +1,5 @@
 # This program allows you to create and view notes.
-## Usage
+## Program Usage
    * create note
    * view note
    * delete note
