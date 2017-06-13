@@ -7,7 +7,7 @@ class Note:
     Class to create Note objects.
     """
     def __init__(self, content):
-        self.id = None
+        self.note_id = None
         self.content = content
         
     def search(self, query_string):

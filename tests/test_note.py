@@ -7,7 +7,7 @@ class NoteTest(unittest.TestCase):
         self.note = note.Note("Lunch hour")
         
     def test_id_is_None(self):
-        self.assertIsNone(self.note.id, 
+        self.assertIsNone(self.note.note_id, 
         "id should be none")
         
     def test_search_returns_correct_output(self):

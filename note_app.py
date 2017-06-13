@@ -7,7 +7,7 @@ Usage:
     note_app view <note_id>
     note_app delete <note_id>
     note_app list
-    note_app search <query_string>
+    note_app search <query_string>...
     note_app (-i | --interactive)
     note_app (-h | --help)
 Options:
@@ -17,6 +17,9 @@ Options:
 import sys
 import cmd
 from docopt import docopt, DocoptExit
+from classes.note_take import NoteTake
+
+note_take = NoteTake()
 
 def docopt_cmd(func):
     """
@@ -50,7 +53,37 @@ class MyInteractive (cmd.Cmd):
     def do_create_note(self, args):
         """Usage: create <content>..."""
         
+        content = args['<content>']
+        content = ' '.join(content)
+        note_take.create_note(content)
         
+    @docopt_cmd
+    def do_view_note(self, args):
+        """Usage: view <note_id>"""
+        
+        note_id = int(args['<note_id>'])
+        note_take.view_note(note_id)
+        
+    @docopt_cmd
+    def do_delete_note(self, args):
+        """Usage: delete <note_id>"""
+        
+        note_id = int(args['<note_id>'])
+        note_take.delete_note(note_id)
+        
+    @docopt_cmd
+    def do_list_notes(self, args):
+        """Usage: list"""
+        
+        note_take.list_notes()
+        
+    @docopt_cmd
+    def do_search_notes(self, args):
+        """Usage: search <query_string>..."""
+        
+        query_string = args['<query_string>']
+        query_string = ' '.join(query_string)
+        note_take.search_notes(query_string)
         
     def do_quit(self, args):
         """Quits out of Interactive Mode."""
