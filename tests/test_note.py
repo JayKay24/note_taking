@@ -1,10 +1,10 @@
 import unittest
 
-from ..classes import note
+from classes.note import Note
 
 class NoteTest(unittest.TestCase):
     def setUp(self):
-        self.note = note.Note("Lunch hour")
+        self.note = Note("Lunch hour")
         
     def test_id_is_None(self):
         self.assertIsNone(self.note.note_id, 
